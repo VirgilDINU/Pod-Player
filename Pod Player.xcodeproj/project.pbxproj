@@ -8,21 +8,31 @@
 
 /* Begin PBXBuildFile section */
 		CAE2C3A6254E6EC0006498C5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE2C3A5254E6EC0006498C5 /* AppDelegate.swift */; };
-		CAE2C3A8254E6EC0006498C5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE2C3A7254E6EC0006498C5 /* ViewController.swift */; };
 		CAE2C3AB254E6EC0006498C5 /* Pod_Player.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CAE2C3A9254E6EC0006498C5 /* Pod_Player.xcdatamodeld */; };
 		CAE2C3AD254E6EC1006498C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CAE2C3AC254E6EC1006498C5 /* Assets.xcassets */; };
 		CAE2C3B0254E6EC1006498C5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAE2C3AE254E6EC1006498C5 /* Main.storyboard */; };
+		CAE2C3BB254E85E6006498C5 /* PodcastsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE2C3BA254E85E6006498C5 /* PodcastsViewController.swift */; };
+		CAE2C3BE254EECD5006498C5 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE2C3BD254EECD5006498C5 /* Parser.swift */; };
+		CAE2C3C2254FDD95006498C5 /* SWXMLHash.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE2C3C0254FDD95006498C5 /* SWXMLHash.swift */; };
+		CAE2C3C3254FDD95006498C5 /* XMLIndexer+XMLIndexerDeserializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE2C3C1254FDD95006498C5 /* XMLIndexer+XMLIndexerDeserializable.swift */; };
+		CAE2C40325558D54006498C5 /* EpisodesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE2C40225558D54006498C5 /* EpisodesViewController.swift */; };
+		CAE2C407255598B4006498C5 /* TheSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE2C406255598B4006498C5 /* TheSplitViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		CAE2C3A2254E6EC0006498C5 /* Pod Player.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pod Player.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAE2C3A5254E6EC0006498C5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CAE2C3A7254E6EC0006498C5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		CAE2C3AA254E6EC0006498C5 /* Pod_Player.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Pod_Player.xcdatamodel; sourceTree = "<group>"; };
 		CAE2C3AC254E6EC1006498C5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CAE2C3AF254E6EC1006498C5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CAE2C3B1254E6EC1006498C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CAE2C3B2254E6EC1006498C5 /* Pod_Player.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Pod_Player.entitlements; sourceTree = "<group>"; };
+		CAE2C3BA254E85E6006498C5 /* PodcastsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastsViewController.swift; sourceTree = "<group>"; };
+		CAE2C3BD254EECD5006498C5 /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
+		CAE2C3C0254FDD95006498C5 /* SWXMLHash.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SWXMLHash.swift; sourceTree = "<group>"; };
+		CAE2C3C1254FDD95006498C5 /* XMLIndexer+XMLIndexerDeserializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XMLIndexer+XMLIndexerDeserializable.swift"; sourceTree = "<group>"; };
+		CAE2C40225558D54006498C5 /* EpisodesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodesViewController.swift; sourceTree = "<group>"; };
+		CAE2C406255598B4006498C5 /* TheSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheSplitViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,9 +66,14 @@
 			isa = PBXGroup;
 			children = (
 				CAE2C3A5254E6EC0006498C5 /* AppDelegate.swift */,
-				CAE2C3A7254E6EC0006498C5 /* ViewController.swift */,
-				CAE2C3AC254E6EC1006498C5 /* Assets.xcassets */,
 				CAE2C3AE254E6EC1006498C5 /* Main.storyboard */,
+				CAE2C406255598B4006498C5 /* TheSplitViewController.swift */,
+				CAE2C3BA254E85E6006498C5 /* PodcastsViewController.swift */,
+				CAE2C40225558D54006498C5 /* EpisodesViewController.swift */,
+				CAE2C3BD254EECD5006498C5 /* Parser.swift */,
+				CAE2C3C0254FDD95006498C5 /* SWXMLHash.swift */,
+				CAE2C3C1254FDD95006498C5 /* XMLIndexer+XMLIndexerDeserializable.swift */,
+				CAE2C3AC254E6EC1006498C5 /* Assets.xcassets */,
 				CAE2C3B1254E6EC1006498C5 /* Info.plist */,
 				CAE2C3B2254E6EC1006498C5 /* Pod_Player.entitlements */,
 				CAE2C3A9254E6EC0006498C5 /* Pod_Player.xcdatamodeld */,
@@ -135,8 +150,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CAE2C3A8254E6EC0006498C5 /* ViewController.swift in Sources */,
+				CAE2C3BE254EECD5006498C5 /* Parser.swift in Sources */,
+				CAE2C3C3254FDD95006498C5 /* XMLIndexer+XMLIndexerDeserializable.swift in Sources */,
+				CAE2C40325558D54006498C5 /* EpisodesViewController.swift in Sources */,
+				CAE2C407255598B4006498C5 /* TheSplitViewController.swift in Sources */,
 				CAE2C3AB254E6EC0006498C5 /* Pod_Player.xcdatamodeld in Sources */,
+				CAE2C3BB254E85E6006498C5 /* PodcastsViewController.swift in Sources */,
+				CAE2C3C2254FDD95006498C5 /* SWXMLHash.swift in Sources */,
 				CAE2C3A6254E6EC0006498C5 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
