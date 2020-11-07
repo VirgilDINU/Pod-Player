@@ -73,7 +73,7 @@ class PodcastsViewController: NSViewController, NSTableViewDataSource, NSTableVi
                 }
             }.resume()
             
-            podcastURLTextField.stringValue = "https://teacherluke.libsyn.com/rss"
+            podcastURLTextField.stringValue = ""
         }
     }
     
@@ -122,3 +122,6 @@ class PodcastsViewController: NSViewController, NSTableViewDataSource, NSTableVi
     }
 }
 
+/*
+ https://teacherluke.libsyn.com/rss
+ */
