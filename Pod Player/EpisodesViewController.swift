@@ -16,6 +16,7 @@ class EpisodesViewController: NSViewController, NSTableViewDataSource, NSTableVi
     @IBOutlet weak var imageView: NSImageView!
     @IBOutlet weak var pausePlayButton: NSButton!
     @IBOutlet weak var tableView: NSTableView!
+    @IBOutlet weak var deleteButton: NSButton!
     
     var podcast: Podcast? = nil
     var podcastsVC: PodcastsViewController? = nil
@@ -26,6 +27,7 @@ class EpisodesViewController: NSViewController, NSTableViewDataSource, NSTableVi
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
+        updateView()
     }
     
     func updateView() {
@@ -43,6 +45,13 @@ class EpisodesViewController: NSViewController, NSTableViewDataSource, NSTableVi
             imageView.image = nil
         }
         
+        if podcast != nil {
+            tableView.isHidden = false
+            deleteButton.isHidden = false
+        } else {
+            tableView.isHidden = true
+            deleteButton.isHidden = true
+        }
         pausePlayButton.isHidden = true
         
         getEpisodes()
@@ -120,9 +129,19 @@ class EpisodesViewController: NSViewController, NSTableViewDataSource, NSTableVi
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         let episode = episodes[row]
         
-        let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "episodescell"), owner: self) as? NSTableCellView
-        cell?.textField?.stringValue = episode.title
+        let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "episodescell"), owner: self) as? EpisodesCell
+        cell?.titleLabel?.stringValue = episode.title
+        cell?.pubDateLabel.stringValue = episode.pubDate.description
+        cell?.descriptionWebView.loadHTMLString(episode.htmlDescription, baseURL: nil)
+        
+        let dateFormater = DateFormatter()
+        dateFormater.dateFormat = "MMM d, yyyy"
+        cell?.pubDateLabel.stringValue = dateFormater.string(from: episode.pubDate)
         return cell
+    }
+    
+    func tableView(_ tableView: NSTableView, heightOfRow row: Int) -> CGFloat {
+        return 100
     }
     
     func tableViewSelectionDidChange(_ notification: Notification) {

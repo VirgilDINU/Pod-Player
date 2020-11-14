@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CA21F8F125603E4600B4506C /* EpisodesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA21F8F025603E4600B4506C /* EpisodesCell.swift */; };
 		CA4630D825584603001D47FE /* Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4630D725584603001D47FE /* Episode.swift */; };
 		CAE2C3A6254E6EC0006498C5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE2C3A5254E6EC0006498C5 /* AppDelegate.swift */; };
 		CAE2C3AB254E6EC0006498C5 /* Pod_Player.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CAE2C3A9254E6EC0006498C5 /* Pod_Player.xcdatamodeld */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CA21F8F025603E4600B4506C /* EpisodesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodesCell.swift; sourceTree = "<group>"; };
 		CA4630D725584603001D47FE /* Episode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Episode.swift; sourceTree = "<group>"; };
 		CAE2C3A2254E6EC0006498C5 /* Pod Player.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pod Player.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAE2C3A5254E6EC0006498C5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 				CAE2C406255598B4006498C5 /* TheSplitViewController.swift */,
 				CAE2C3BA254E85E6006498C5 /* PodcastsViewController.swift */,
 				CAE2C40225558D54006498C5 /* EpisodesViewController.swift */,
+				CA21F8F025603E4600B4506C /* EpisodesCell.swift */,
 				CA4630D725584603001D47FE /* Episode.swift */,
 				CAE2C3BD254EECD5006498C5 /* Parser.swift */,
 				CAE2C3C0254FDD95006498C5 /* SWXMLHash.swift */,
@@ -156,6 +159,7 @@
 				CAE2C3BE254EECD5006498C5 /* Parser.swift in Sources */,
 				CAE2C3C3254FDD95006498C5 /* XMLIndexer+XMLIndexerDeserializable.swift in Sources */,
 				CAE2C40325558D54006498C5 /* EpisodesViewController.swift in Sources */,
+				CA21F8F125603E4600B4506C /* EpisodesCell.swift in Sources */,
 				CAE2C407255598B4006498C5 /* TheSplitViewController.swift in Sources */,
 				CAE2C3AB254E6EC0006498C5 /* Pod_Player.xcdatamodeld in Sources */,
 				CAE2C3BB254E85E6006498C5 /* PodcastsViewController.swift in Sources */,
