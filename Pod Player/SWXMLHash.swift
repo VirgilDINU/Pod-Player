@@ -28,7 +28,7 @@
 //   source down as is and it makes pulling the code into a project easier.
 
 // swiftlint:disable file_length
-
+import Swift
 import Foundation
 #if canImport(FoundationXML)
 import FoundationXML

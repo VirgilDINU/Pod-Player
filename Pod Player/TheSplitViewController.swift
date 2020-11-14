@@ -11,7 +11,6 @@ class TheSplitViewController: NSSplitViewController {
     
     
     @IBOutlet weak var podcastsItem: NSSplitViewItem!
-    
     @IBOutlet weak var episodesItem: NSSplitViewItem!
     
     override func viewDidLoad() {

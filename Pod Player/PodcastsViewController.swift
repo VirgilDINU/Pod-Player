@@ -7,39 +7,37 @@
 
 import Cocoa
 
+
 class PodcastsViewController: NSViewController, NSTableViewDataSource, NSTableViewDelegate {
     
     @IBOutlet weak var podcastURLTextField: NSTextField!
-    
-    @IBOutlet weak var tableViewLeft: NSTableView!
+    @IBOutlet weak var tableView: NSTableView!
     
     var podcasts: [Podcast] = []
-    
     var episodesVC: EpisodesViewController? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
         
-        podcastURLTextField.stringValue =  "https://www.omnycontent.com/d/playlist/aaea4e69-af51-495e-afc9-a9760146922b/14a43378-edb2-49be-8511-ab0d000a7030/d1b9612f-bb1b-4b85-9c0c-ab0d004ab37a/podcast.rss"
+        podcastURLTextField.stringValue = "https://feeds.simplecast.com/pvzhyDQn"
         getPodcast()
     }
     
     func getPodcast() {
         if let context = (NSApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext{
-            
             let fetchy = Podcast.fetchRequest() as NSFetchRequest<Podcast>
             fetchy.sortDescriptors = [NSSortDescriptor(key: "title", ascending: true)]
-            
             
             do {
                 podcasts = try context.fetch(fetchy)
                 print(podcasts)
+                print("S-a executat getPodcast().")
             }
             catch{}
-            DispatchQueue.main.async {
-                self.tableViewLeft.reloadData()
-            }
+            self.tableView.reloadData()
+            
+            
         }
     }
     
@@ -54,43 +52,42 @@ class PodcastsViewController: NSViewController, NSTableViewDataSource, NSTableVi
                         let parser = Parser()
                         let info = parser.getPosdcastMetaData(data: data!)
                         DispatchQueue.main.async {
-                            if !self.podcastExists(rssURL: self.podcastURLTextField.stringValue) {
-                                
+                            if self.podcastExists(rssURL: self.podcastURLTextField.stringValue) {
                                 if let context = (NSApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
                                     let podcast = Podcast(context: context)
                                     podcast.rssURL = self.podcastURLTextField.stringValue
                                     podcast.imageURL = info.imageURL
                                     podcast.title = info.title
-                                    
                                     (NSApplication.shared.delegate as? AppDelegate)?.saveAction(nil)
-                                    
                                     self.getPodcast()
+                                    DispatchQueue.main.async {
+                                        self.podcastURLTextField.stringValue = ""
+                                    }
+                                    print("S-a executat addPodcastButton(_ sender: Any).")
                                 }
                             }
                         }
-                        print("Pasul2!!!")
                     }
                 }
+                
             }.resume()
-            
-            podcastURLTextField.stringValue = ""
         }
+        
+        
     }
     
     func podcastExists(rssURL: String) -> Bool {
         
         if let context = (NSApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
-            
             let fetchy = Podcast.fetchRequest() as NSFetchRequest<Podcast>
             fetchy.predicate = NSPredicate(format: "rssURL == %@", rssURL)
             
             do {
                 let matchingPodcasts = try context.fetch(fetchy)
-                
                 if matchingPodcasts.count >= 1 {
-                    return true
-                } else {
                     return false
+                } else {
+                    return true
                 }
             } catch {}
         }
@@ -106,22 +103,37 @@ class PodcastsViewController: NSViewController, NSTableViewDataSource, NSTableVi
         let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "podcastcell"), owner: self) as? NSTableCellView
         
         let podcast = podcasts[row]
+        
         if podcast.title != nil {
             cell?.textField?.stringValue = podcast.title!
         } else {
-            cell?.textField?.stringValue = " UNKNOWN TITLE!"
+            cell?.textField?.stringValue = "UNKNOWN TITLE!"
         }
+        
         return cell
     }
     
     func tableViewSelectionDidChange(_ notification: Notification) {
-        let podcast = podcasts[tableViewLeft.selectedRow]
         
-        episodesVC?.podcast = podcast
-        episodesVC?.updateView()
+        if tableView.selectedRow >= 0 {
+            let podcast = podcasts[tableView.selectedRow]
+            
+            episodesVC?.podcast = podcast
+            episodesVC?.updateView()
+        }
+        
     }
+    
+    
+    
+    
 }
 
 /*
  https://teacherluke.libsyn.com/rss
+ https://feeds.megaphone.fm/the-daily-show
+ http://feedproxy.google.com/~r/TheJimmyDoreShow/~3/L8DVYZuuetI/TJDS_20201028_Podcast.mp3?utm_source=listennotes.com&utm_campaign=Listen+Notes&utm_medium=website
+ https://feeds.simplecast.com/pvzhyDQn
+ https://podcasts.files.bbci.co.uk/p07h19zz.rss
+ https://feeds.megaphone.fm/ESP7239282233
  */

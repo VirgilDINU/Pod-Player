@@ -6,9 +6,11 @@
 //
 
 import Cocoa
+import AVFoundation
+import AVKit
 
-class EpisodesViewController: NSViewController {
-    
+
+class EpisodesViewController: NSViewController, NSTableViewDataSource, NSTableViewDelegate {
     
     @IBOutlet weak var titleLabel: NSTextField!
     @IBOutlet weak var imageView: NSImageView!
@@ -17,6 +19,9 @@ class EpisodesViewController: NSViewController {
     
     var podcast: Podcast? = nil
     var podcastsVC: PodcastsViewController? = nil
+    var episodes: [Episode] = []
+    
+    var player: AVPlayer = AVPlayer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,31 +31,113 @@ class EpisodesViewController: NSViewController {
     func updateView() {
         
         if podcast?.title != nil{
-            titleLabel.stringValue = (podcast?.title)!
+            titleLabel.stringValue = podcast!.title!
+        } else {
+            titleLabel.stringValue = ""
         }
         
         if podcast?.imageURL != nil{
-            
-            let image = NSImage(byReferencing: URL(string: (podcast?.imageURL)!)!)
+            let image = NSImage(byReferencing: URL(string: (podcast!.imageURL)!)!)
             imageView.image = image
+        } else {
+            imageView.image = nil
         }
         
-        pausePlayButton.isEnabled = false
+        pausePlayButton.isHidden = true
+        
+        getEpisodes()
         
     }
     
-    @IBAction func deleteClicked(_ sender: Any) {
+    func getEpisodes() {
         
-        if podcast != nil{
+        if podcast?.rssURL != nil {
+            if let url = URL(string: podcast!.rssURL!) {
+                URLSession.shared.dataTask(with: url) { (data: Data?, response: URLResponse?, error: Error?) in
+                    if error != nil {
+                        print(error!)
+                    }
+                    else
+                    {
+                        if data != nil {
+                            let parser = Parser()
+                            self.episodes = parser.getEpisodes(data: data!)
+                            //print(self.episodes)
+                            DispatchQueue.main.async {
+                                self.tableView.reloadData()
+                            }
+                        }
+                        
+                    }
+                    
+                }.resume()
+            }
+        }
+    }
+    
+    @IBAction func deleteClicked(_ sender: Any) {
+        // Ne asiguram ca este selectat un 'poscast'.
+        if podcast != nil {
+            //The managed object context associated with the main queue
             if let context = (NSApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
+                //Specifies an object that should be removed from its persistent store when changes are committed.
                 context.delete(podcast!)
+                //Salvam ce am facut.
                 (NSApplication.shared.delegate as? AppDelegate)?.saveAction(nil)
+                //Actualizam 'podcastsVC.tableView' apeland functia getPodcast() a lui 'podcastsVC' care contine 'self.tableView.reloadData()'.
+                print("S-a executat deleteClicked(_ sender: Any).")
                 podcastsVC?.getPodcast()
+                
+                //Stergem si 'titleLabel' si 'imageView' din 'EpisodesViewController'.
+                podcast = nil
+                updateView()
+                DispatchQueue.main.async {
+                    self.episodes = []
+                    self.tableView.reloadData()
+                }
+                
             }
         }
     }
     
     @IBAction func pausePlayClicked(_ sender: Any) {
+        if pausePlayButton.title == "Pause" {
+            player.pause()
+            pausePlayButton.title = "Play"
+        } else {
+            player.play()
+            pausePlayButton.title = "Pause"
+        }
+        
     }
     
+    func numberOfRows(in tableView: NSTableView) -> Int {
+        
+        print(episodes.count)
+        return episodes.count
+    }
+    
+    func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
+        let episode = episodes[row]
+        
+        let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "episodescell"), owner: self) as? NSTableCellView
+        cell?.textField?.stringValue = episode.title
+        return cell
+    }
+    
+    func tableViewSelectionDidChange(_ notification: Notification) {
+        if tableView.selectedRow >= 0 {
+            let episode = episodes[tableView.selectedRow]
+            
+            if let url = URL(string: episode.audioURL){
+                print("The string is:\(episode.audioURL)")
+                player = AVPlayer(url: url)
+                player.volume = 0.5
+                player.play()
+                pausePlayButton.isHidden = false
+                pausePlayButton.title = "Pause"
+            }
+            
+        }
+    }
 }

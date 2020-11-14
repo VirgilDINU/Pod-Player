@@ -846,12 +846,12 @@
                     </view>
                     <connections>
                         <outlet property="podcastURLTextField" destination="352-j7-DA9" id="JGh-oB-YYU"/>
-                        <outlet property="tableViewLeft" destination="bHC-PW-iGv" id="aOr-OT-jYm"/>
+                        <outlet property="tableView" destination="bHC-PW-iGv" id="cok-p4-pzB"/>
                     </connections>
                 </viewController>
                 <customObject id="pAc-T9-D3G" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="680.5" y="499.5"/>
+            <point key="canvasLocation" x="1005" y="395"/>
         </scene>
         <!--Episodes View Controller-->
         <scene sceneID="JX4-f2-1P0">
@@ -904,13 +904,13 @@
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="MLk-HF-ViO" viewBased="YES" id="8Ga-xg-4WL">
-                                            <rect key="frame" x="0.0" y="0.0" width="652" height="305"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="650" height="305"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                             <tableColumns>
-                                                <tableColumn width="649" minWidth="40" maxWidth="1000" id="nWr-fV-rmS">
+                                                <tableColumn width="647" minWidth="40" maxWidth="1000" id="nWr-fV-rmS">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Episodes">
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
@@ -922,12 +922,12 @@
                                                     </textFieldCell>
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
-                                                        <tableCellView id="y66-sg-uRt">
-                                                            <rect key="frame" x="1" y="1" width="649" height="17"/>
+                                                        <tableCellView identifier="episodescell" id="y66-sg-uRt">
+                                                            <rect key="frame" x="1" y="1" width="647" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MBB-Q0-xLt">
-                                                                    <rect key="frame" x="0.0" y="1" width="649" height="16"/>
+                                                                    <rect key="frame" x="0.0" y="1" width="647" height="16"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="tUU-vg-gQP">
                                                                         <font key="font" usesAppearanceFont="YES"/>
@@ -950,7 +950,7 @@
                                         </tableView>
                                     </subviews>
                                 </clipView>
-                                <scroller key="horizontalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="d1i-vT-JrL">
+                                <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="d1i-vT-JrL">
                                     <rect key="frame" x="1" y="314" width="650" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
@@ -959,7 +959,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <tableHeaderView key="headerView" id="MLk-HF-ViO">
-                                    <rect key="frame" x="0.0" y="0.0" width="652" height="25"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="650" height="25"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableHeaderView>
                             </scrollView>
@@ -989,7 +989,7 @@
                 </viewController>
                 <customObject id="uNI-hY-Dvx" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1322" y="523"/>
+            <point key="canvasLocation" x="852" y="976"/>
         </scene>
     </scenes>
 </document>

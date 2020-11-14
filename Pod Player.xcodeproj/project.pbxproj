@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CA4630D825584603001D47FE /* Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4630D725584603001D47FE /* Episode.swift */; };
 		CAE2C3A6254E6EC0006498C5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE2C3A5254E6EC0006498C5 /* AppDelegate.swift */; };
 		CAE2C3AB254E6EC0006498C5 /* Pod_Player.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CAE2C3A9254E6EC0006498C5 /* Pod_Player.xcdatamodeld */; };
 		CAE2C3AD254E6EC1006498C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CAE2C3AC254E6EC1006498C5 /* Assets.xcassets */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CA4630D725584603001D47FE /* Episode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Episode.swift; sourceTree = "<group>"; };
 		CAE2C3A2254E6EC0006498C5 /* Pod Player.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pod Player.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAE2C3A5254E6EC0006498C5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CAE2C3AA254E6EC0006498C5 /* Pod_Player.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Pod_Player.xcdatamodel; sourceTree = "<group>"; };
@@ -70,6 +72,7 @@
 				CAE2C406255598B4006498C5 /* TheSplitViewController.swift */,
 				CAE2C3BA254E85E6006498C5 /* PodcastsViewController.swift */,
 				CAE2C40225558D54006498C5 /* EpisodesViewController.swift */,
+				CA4630D725584603001D47FE /* Episode.swift */,
 				CAE2C3BD254EECD5006498C5 /* Parser.swift */,
 				CAE2C3C0254FDD95006498C5 /* SWXMLHash.swift */,
 				CAE2C3C1254FDD95006498C5 /* XMLIndexer+XMLIndexerDeserializable.swift */,
@@ -157,6 +160,7 @@
 				CAE2C3AB254E6EC0006498C5 /* Pod_Player.xcdatamodeld in Sources */,
 				CAE2C3BB254E85E6006498C5 /* PodcastsViewController.swift in Sources */,
 				CAE2C3C2254FDD95006498C5 /* SWXMLHash.swift in Sources */,
+				CA4630D825584603001D47FE /* Episode.swift in Sources */,
 				CAE2C3A6254E6EC0006498C5 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -296,6 +300,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Pod Player/Pod_Player.entitlements";
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 5BHYXTAF7Y;
@@ -305,6 +310,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = "vd.Pod-Player";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -317,6 +323,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Pod Player/Pod_Player.entitlements";
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 5BHYXTAF7Y;
@@ -326,6 +333,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = "vd.Pod-Player";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
